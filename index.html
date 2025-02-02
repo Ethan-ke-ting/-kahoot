@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>四選一小遊戲</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>四選一小遊戲</h1>
+    <div id="question-container">
+      <p id="question">這是一個範例問題，答案是什麼？</p>
+      <div id="choices">
+        <button class="choice" onclick="selectAnswer(0)">選項 1</button>
+        <button class="choice" onclick="selectAnswer(1)">選項 2</button>
+        <button class="choice" onclick="selectAnswer(2)">選項 3</button>
+        <button class="choice" onclick="selectAnswer(3)">選項 4</button>
+      </div>
+    </div>
+    <p id="result"></p>
+    <button id="next-button" onclick="loadNextQuestion()">下一題</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
