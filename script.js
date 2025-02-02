@@ -62,16 +62,7 @@ const questions = [
     nextButton.style.display = "block";
   }
   
-  function loadNextQuestion() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-      loadQuestion();
-    } else {
-      const questionContainer = document.getElementById("question-container");
-      questionContainer.innerHTML = "<h2>遊戲結束！感謝參與！</h2>";
-      document.getElementById("next-button").style.display = "none";
-    }
-  }
+
   
   document.addEventListener("DOMContentLoaded", loadQuestion);
   
@@ -101,12 +92,20 @@ function selectAnswer(selectedIndex) {
 }
 
 function loadNextQuestion() {
-  currentQuestionIndex++;
-  if (currentQuestionIndex < questions.length) {
-    loadQuestion();
-  } else {
-    const questionContainer = document.getElementById("question-container");
-    questionContainer.innerHTML = `<h2>遊戲結束！你的分數是 ${score} 分！</h2>`;
-    document.getElementById("next-button").style.display = "none";
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+      loadQuestion();
+    } else {
+      const questionContainer = document.getElementById("question-container");
+      const nextButton = document.getElementById("next-button");
+      const resultElement = document.getElementById("result");
+  
+      // 清除「答對了！」「答錯了！」的訊息
+      resultElement.textContent = "";
+  
+      // 顯示最終分數
+      questionContainer.innerHTML = `<h2>遊戲結束！你的分數是 ${score} 分！</h2>`;
+  
+      nextButton.style.display = "none";
+    }
   }
-}
